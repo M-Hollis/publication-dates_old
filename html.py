@@ -69,4 +69,3 @@ def __get_article_urls(base_url, url):
 		articleUrls.append(base_url + url.encode('utf-8'))
 
 	return articleUrls
-

@@ -4,6 +4,7 @@ This program will go to The Astrophysical Journal website and retrieve the 'Rece
 Inputs: journal name ('ApJ' or 'ApJL'), number of articles to sample per issue 
 Outputs: .csv file (open in Excel)
 
+
 ### Technical details ###
 
 Assumptions:  
