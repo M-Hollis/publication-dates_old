@@ -1,5 +1,5 @@
 journal-stats/
-out/
+
 env/
 *.pyc
 
