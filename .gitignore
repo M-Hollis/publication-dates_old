@@ -1,0 +1,6 @@
+journal-stats/
+out/
+env/
+*.pyc
+
+hours.log

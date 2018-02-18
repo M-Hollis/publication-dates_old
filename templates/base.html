@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Publication dates app</title>
+<!-->
+	<link rel="stylesheet" media="screen" href="style.css" type="text.css">
+<!-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="Morgan Hollis">
+	<meta name="description" content="A webcrawler to retrieve publication dates from the Astrophysical Journal website.">
+	<meta name="robots" content="all">
+</head>
+
+<body id="publication-dates">
+	<div class="page-wrapper">
+
+		<section class="intro" id="intro">
+			<div class="preamble" id="app-description">
+				<h1>Publication dates</h1>
+				<body>
+					<p>----------</p>
+					<p>This program will go to The Astrophysical Journal website and retrieve the 'Received' and 'Accepted' dates for a sample of articles accepted in ApJ or ApJL in the previous year, saving them into a spreadsheet.</p>
+					<p></p>
+					<p>Inputs: journal name ('ApJ' or 'ApJL'), number of articles to sample per issue</p>
+					<p>Outputs: .csv file (open in Excel)</p>
+					<p></p>
+					<p></p>
+					<p>----------</p>
+					<p></p>
+					<h2>Current run parameters:</h2>
+					<p></p>
+				</body>
+			</div>
+		</section>
+
+		<div class="supporting" id="parameter-input">
+			<form method="POST">
+			    <p>Journal: </p><input name="journal">
+			    <p>Number of articles to sample per issue: </p><input name="num_articles">
+
+			    <p><input type="submit" value="Get publication dates"></p>
+			</form>
+		</div>
+
+	</div>
+</body>
+
+</html>
