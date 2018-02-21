@@ -1,10 +1,15 @@
 from flask import Flask, render_template, request
 
+from rq import Queue
+from worker import conn
+
 import parameters as pars
 import script
 
 
 app = Flask(__name__)
+
+q = Queue(connection=conn)
 
 
 @app.route("/")
@@ -19,7 +24,9 @@ def form_post():
 	num_articles = request.form['num_articles']
 
 	if pars.valid(journal, num_articles):
-		script.run(journal, num_articles)
+		from utils import count_words_at_url
+		# result = q.enqueue(count_words_at_url, 'http://heroku.com')
+		result = q.enqueue(script.run(journal, num_articles))
 	else:
 		return render_template('input_error.html')
 
