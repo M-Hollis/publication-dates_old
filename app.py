@@ -24,7 +24,6 @@ def form_post():
 	num_articles = request.form['num_articles']
 
 	if pars.valid(journal, num_articles):
-		from utils import count_words_at_url
 		# result = q.enqueue(count_words_at_url, 'http://heroku.com')
 		result = q.enqueue(script.run(journal, num_articles))
 	else:
