@@ -25,7 +25,7 @@ def form_post():
 
 	if pars.valid(journal, num_articles):
 		# result = q.enqueue(count_words_at_url, 'http://heroku.com')
-		result = q.enqueue(script.run(journal, num_articles))
+		result = q.enqueue(script.run, journal, num_articles)
 	else:
 		return render_template('input_error.html')
 
