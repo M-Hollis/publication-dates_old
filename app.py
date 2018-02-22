@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, make_response, send_file
+from flask import Flask, render_template, request, send_file
 
 from rq import Queue
 from worker import conn
@@ -19,7 +19,6 @@ def index():
 
 @app.route('/', methods=['POST'])
 def form_post():
-#https://stackoverflow.com/questions/12277933/send-data-from-a-textbox-into-flask
 	journal = request.form['journal'].upper()
 	num_articles = request.form['num_articles']
 
@@ -28,30 +27,16 @@ def form_post():
 	else:
 		return render_template('input_error.html')
 
-	return "Compiling results..."
+	return render_template('processing.html')
 
 
 @app.route('/download')
 def download():
 	try:
-		return send_file(pars.filename, as_attachment=True)
-		# return send_file(pars.filename, attachment_filename="dates.csv", as_attachment=True)
-	except Exception as e:
-		return str(e)
-
-
-# def download():
-#     csv = """"REVIEW_DATE","AUTHOR","ISBN","DISCOUNTED_PRICE"
-# "1985/01/21","Douglas Adams",0345391802,5.95
-# "1990/01/12","Douglas Hofstadter",0465026567,9.95
-# "1998/07/15","Timothy ""The Parser"" Campbell",0968411304,18.99
-# "1999/12/03","Richard Friedman",0060630353,5.95
-# "2004/10/04","Randel Helms",0879755725,4.50"""
-    
-# 	response = make_response(csv)
-#     response.headers["Content-Disposition"] = "attachment; filename=dates.csv"
-# 	response.headers["Content-type"] = "text/csv"
-#     return response
+		return send_file(pars.filename, mimetype="text/csv", as_attachment=True)
+# NB DOESN'T TAKE JOURNAL NAME FROM WEB INPUT, LOADS FROM PARAMETERS.PY STILL
+	except Exception:
+		return render_template('download_error.html')
 
 
 if __name__ == "__main__":
