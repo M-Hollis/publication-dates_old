@@ -2,7 +2,9 @@ import csv
 
 class FileWriter:
 
-	def __init__(self, filename):
+	def __init__(self, journal_name):
+		filename = journal_name + "_dates.csv"
+
 		self.__file_handle = open(filename, 'wb')
 		self.__writer = csv.writer(self.__file_handle, lineterminator='\n')
 

@@ -1,5 +1,4 @@
 import sys
-import parameters as pars
 import html
 from article import Article
 from file_writer import FileWriter
@@ -7,10 +6,8 @@ from file_writer import FileWriter
 
 def run(journal, num_articles):
 
-	# Setup output file, get input parameters, and use brief run if testing
-	writer = FileWriter(pars.filename)
-	journal = journal  # journal name
-	num_articles = num_articles  # number of articles to use from each issue
+	# Setup output file, set parameters, and use brief run if testing
+	writer = FileWriter(journal)
 
 	num_volumes = 18  # 18 volumes per year
 	issue = 1  # sample issue for each volume
@@ -54,4 +51,4 @@ def run(journal, num_articles):
 
 
 if __name__ == "__main__":
-    run(pars.journal, pars.num_articles)
+    run(parameters.journal, parameters.num_articles)

@@ -1,6 +1,6 @@
 journal-stats/
-out/
 env/
 *.pyc
+*.csv
 
 hours.log

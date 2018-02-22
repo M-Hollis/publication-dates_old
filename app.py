@@ -33,8 +33,8 @@ def form_post():
 @app.route('/download')
 def download():
 	try:
-		return send_file(pars.filename, mimetype="text/csv", as_attachment=True)
-# NB DOESN'T TAKE JOURNAL NAME FROM WEB INPUT, LOADS FROM PARAMETERS.PY STILL
+		return send_file(results_filename, mimetype="text/csv", as_attachment=True)
+# NB DOESN'T TAKE JOURNAL NAME FROM WEB INPUT
 	except Exception:
 		return render_template('download_error.html')
 
