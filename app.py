@@ -34,7 +34,7 @@ def form_post():
 @app.route('/download')
 def download():
 	try:
-		return send_file("/"+pars.filename, attachment_filename='dates.csv')
+		return send_file("app/"+pars.filename, attachment_filename=journal+"_dates.csv")
 	except Exception as e:
 		return str(e)
 
